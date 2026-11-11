@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #0B0B0D;
+    --bg-secondary: #14151A;
+    --bg-card: #181A20;
+    --gold-1: #8C6A1A;
+    --gold-2: #D4AF37;
+    --gold-3: #F5D77A;
+    --gold-light: #FFF4D0;
+    --amber-accent: #E9A23C;
+    --text-primary: #FAF6EC;
+    --text-muted: #A8A398;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Typography Families */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+.font-tamil {
+  font-family: 'Noto Sans Tamil', 'Mukta Malar', sans-serif;
+}
+.font-tamil-serif {
+  font-family: 'Noto Serif Tamil', 'Noto Sans Tamil', serif;
+}
+
+/* Tamil Typography Overrides for html[lang="ta"] */
+html[lang="ta"] {
+  font-family: 'Noto Sans Tamil', 'Mukta Malar', sans-serif;
+  line-height: 1.65;
+}
+
+html[lang="ta"] h1,
+html[lang="ta"] h2,
+html[lang="ta"] h3,
+html[lang="ta"] h4,
+html[lang="ta"] h5,
+html[lang="ta"] h6,
+html[lang="ta"] .font-cinzel,
+html[lang="ta"] .font-playfair {
+  font-family: 'Noto Serif Tamil', 'Noto Sans Tamil', serif !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  line-height: 1.45 !important;
+}
+
+html[lang="ta"] body,
+html[lang="ta"] p,
+html[lang="ta"] span,
+html[lang="ta"] button,
+html[lang="ta"] a,
+html[lang="ta"] input,
+html[lang="ta"] textarea,
+html[lang="ta"] select,
+html[lang="ta"] label {
+  font-family: 'Noto Sans Tamil', 'Mukta Malar', sans-serif;
+}
+
+/* Disable uppercase and wide tracking in Tamil mode so Tamil glyphs remain intact */
+html[lang="ta"] .uppercase,
+html[lang="ta"] [class*="uppercase"] {
+  text-transform: none !important;
+}
+
+html[lang="ta"] .tracking-widest,
+html[lang="ta"] .tracking-wider,
+html[lang="ta"] .tracking-wide,
+html[lang="ta"] .tracking-tight,
+html[lang="ta"] [class*="tracking-"] {
+  letter-spacing: normal !important;
+}
+
+/* Allow buttons and chips to wrap without overflowing */
+html[lang="ta"] .btn-gold-pill,
+html[lang="ta"] .btn-gold-outline {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* Luxury Metallic Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F5D77A 0%, #D4AF37 50%, #AA8220 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-gradient-bright {
+  background: linear-gradient(135deg, #FFF6D6 0%, #F5D77A 30%, #D4AF37 70%, #99741B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #D4AF37 0%, rgba(212, 175, 55, 0.2) 50%, #8C6A1A 100%) 1;
+}
+
+/* Luxury Gold Glows */
+.gold-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.35);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.45);
+}
+
+.gold-glow-text {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Glassmorphism Card Style */
+.glass-gold-card {
+  background: rgba(24, 26, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-gold-card:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 10px 35px -10px rgba(212, 175, 55, 0.22);
+}
+
+/* Metallic Gold Pill Button */
+.btn-gold-pill {
+  background: linear-gradient(135deg, #F5D77A 0%, #D4AF37 50%, #9E791D 100%);
+  color: #0B0B0D;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-gold-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.55);
+  background: linear-gradient(135deg, #FFF0C2 0%, #E5BF42 50%, #B88E23 100%);
+}
+
+.btn-gold-outline {
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  background: rgba(24, 26, 32, 0.4);
+  backdrop-filter: blur(10px);
+  color: #F5D77A;
+  transition: all 0.25s ease;
+}
+
+.btn-gold-outline:hover {
+  border-color: #F5D77A;
+  background: rgba(212, 175, 55, 0.12);
+  color: #FFF6D6;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Subtle Film Grain */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Custom Gold Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #332B18;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Keyframes for shine sweep */
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-shine {
+  animation: shine-sweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Page load intro: Single gold light-sweep */
+@keyframes gold-single-sweep {
+  0% {
+    transform: translateX(-180%) skewX(-25deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(280%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+.animate-gold-single-sweep {
+  animation: gold-single-sweep 1.1s cubic-bezier(0.25, 1, 0.5, 1) 0.35s forwards;
+}
+
+/* Ken Burns slow subtle zoom for hero phone preview */
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenburns 14s ease-in-out infinite alternate;
+}
+
+/* Marquee infinite scroll */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
